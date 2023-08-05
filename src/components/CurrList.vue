@@ -16,8 +16,8 @@
       </v-autocomplete>
       </v-col>
       <v-col cols="6" class="btn__group">
-        <v-btn @click="clearSelectedCurrency" cols="4">Сбросить выбранную валюту</v-btn>
-        <v-btn @click="reversingCurrencyList" cols="4">Переключить</v-btn>
+        <v-btn @click="clearSelectedCurrency">Сбросить выбранную валюту</v-btn>
+        <v-btn @click="reversingCurrencyList">Переключить</v-btn>
       </v-col>
     </v-row>
     <div v-if="currencyStore.loading">Загрузка...</div>
