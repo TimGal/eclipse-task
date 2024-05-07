@@ -24,11 +24,11 @@
     <div class="curr__group" v-else>
       <div class="curr__item" v-for="currency in currencyStore.filteredCurrencies" :key="currency.ID">
         <h2 class="curr__text" v-if="!reverseCurrency" >
-          {{ CurrencyExpression(currency.CharCode, currency.Value) }}
+          {{ currencyExpression(currency.CharCode, currency.Value) }}
           <span class="curr_diff" :class="{green: currency.Value > currency.Previous, red: currency.Value < currency.Previous }">{{ currency.Value > currency.Previous ? '▲' : '▼' }} {{ Math.abs(currency.Previous - currency.Value).toFixed(2) }}</span>
         </h2>
         <h2 class="curr__text" v-else-if="reverseCurrency">
-          {{ CurrencyRExpression(currency.CharCode, currency.Value) }}
+          {{ currencyRExpression(currency.CharCode, currency.Value) }}
           <span class="curr_diff" :class="{green: currency.Value > currency.Previous, red: currency.Value < currency.Previous }">{{ currency.Value > currency.Previous ? '▲' : '▼' }} {{ Math.abs(currency.Previous - currency.Value).toFixed(2) }}</span>
         </h2>
         <h2 class="curr__text" v-else>Валюта {{ currency.Name }} не загрузилась</h2>
@@ -59,11 +59,11 @@ const clearSelectedCurrency = () => {
 // const CurrencyExpression = (name, value) => {
 //   return !reverseCurrency.value ? `1 ${name} - ${value.toFixed(2)} RUB` : `${(1 / value).toFixed(2)} RUB - 1 ${name}`
 // }
-const CurrencyExpression = (name, value) => {
+const currencyExpression = (name, value) => {
   return `1 ${name} - ${value.toFixed(2)} RUB`
 }
 
-const CurrencyRExpression = (name, value) => {
+const currencyRExpression = (name, value) => {
   return `${(1 / value).toFixed(2)} RUB - 1 ${name}`
 }
 
